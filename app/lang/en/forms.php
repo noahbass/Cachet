@@ -21,6 +21,7 @@ return [
     'incidents' => [
         'name'         => 'Name',
         'status'       => 'Status',
+        'component'    => 'Component',
         'message'      => 'Message',
         'message-help' => 'You may also use Markdown.',
 
@@ -86,5 +87,8 @@ return [
     'delete' => 'Delete',
     'submit' => 'Submit',
     'cancel' => 'Cancel',
-    'remove' => 'Remove'
+    'remove' => 'Remove',
+
+    // Other
+    'optional' => '* Optional',
 ];

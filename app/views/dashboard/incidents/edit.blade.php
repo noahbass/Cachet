@@ -42,6 +42,16 @@
                             {{ trans('cachet.incidents.status')[4] }}
                         </label>
                     </div>
+                    <div class='form-group'>
+                        <label>{{ trans('forms.incidents.component') }}</label>
+                        <select name='incident[component_id]' class='form-control'>
+                            <option value='0' {{ $incident->id === 0 ? "selected" : null }}></option>
+                            @foreach($components as $component)
+                            <option value='{{ $component->id }}' {{ $incident->component_id === $component->id ? "selected" : null }}>{{ $component->name }}</option>
+                            @endforeach
+                        </select>
+                        <span class='help-block'>{{ trans('forms.optional') }}</span>
+                    </div>
                     <div class="form-group">
                         <label>{{ trans('forms.incidents.message') }}</label>
                         <textarea name="incident[message]" class="form-control" rows="5">{{ $incident->message }}</textarea>

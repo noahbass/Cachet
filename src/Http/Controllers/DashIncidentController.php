@@ -2,6 +2,7 @@
 
 namespace CachetHQ\Cachet\Http\Controllers;
 
+use CachetHQ\Cachet\Models\Component;
 use CachetHQ\Cachet\Models\Incident;
 use CachetHQ\Cachet\Models\IncidentTemplate;
 use GrahamCampbell\Binput\Facades\Binput;
@@ -34,7 +35,8 @@ class DashIncidentController extends Controller
     public function showAddIncident()
     {
         return View::make('dashboard.incidents.add')->with([
-            'pageTitle' => trans('dashboard.incidents.add.title').' - '.trans('dashboard.dashboard'),
+            'pageTitle'  => trans('dashboard.incidents.add.title').' - '.trans('dashboard.dashboard'),
+            'components' => Component::all(),
         ]);
     }
 
@@ -100,8 +102,9 @@ class DashIncidentController extends Controller
     public function showEditIncidentAction(Incident $incident)
     {
         return View::make('dashboard.incidents.edit')->with([
-            'pageTitle' => trans('dashboard.incidents.edit.title').' - '.trans('dashboard.dashboard'),
-            'incident'  => $incident,
+            'pageTitle'  => trans('dashboard.incidents.edit.title').' - '.trans('dashboard.dashboard'),
+            'incident'   => $incident,
+            'components' => Component::all(),
         ]);
     }
 
